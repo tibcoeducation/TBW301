@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/tibedu/testschema/CustSchema.xsd"
+	 targetNamespace="http://www.tibco.com/tibedu/testschema/CustSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="CustomerID" type="xs:string"/>
+	<xs:element name="CustInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustomerID"/>
+				<xs:element ref="FName"/>
+				<xs:element ref="LName"/>
+				<xs:element ref="AddressInfo" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CreditLimit"/>
+				<xs:element ref="UsedAmount"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FName" type="xs:string"/>
+	<xs:element name="LName" type="xs:string"/>
+	<xs:element name="AddressInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Address"/>
+				<xs:element ref="City"/>
+				<xs:element ref="State"/>
+				<xs:element ref="ZipCode"/>
+				<xs:element ref="Country" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreditLimit" type="xs:decimal"/>
+	<xs:element name="UsedAmount" type="xs:decimal"/>
+	<xs:element name="Address" type="xs:string"/>
+	<xs:element name="City" type="xs:string"/>
+	<xs:element name="State" type="xs:string"/>
+	<xs:element name="ZipCode" type="xs:string"/>
+	<xs:element name="Country" type="xs:string"/>
+</xs:schema>

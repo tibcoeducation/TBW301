@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ACMENewOrder="http://www.tibco.com/tibedu/ACMENewOrder" xmlns:ACMEOrders="http://www.tibco.com/tibedu/ACMEOrders" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:Schema.xsd="http://www.tibco.com/schemas/testschemas/Schema.xsd" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_lIxi4HCgEe2809onhOAQ-g" targetNamespace="http://tns.tibco.com/bw/composite/ACMETester" name="ACMETester" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_mBIuQHCgEe2809onhOAQ-g" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_mBYl4HCgEe2809onhOAQ-g" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_mBeFcHCgEe2809onhOAQ-g" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_mBi98HCgEe2809onhOAQ-g" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_mBn2cHCgEe2809onhOAQ-g" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_mBsu8HCgEe2809onhOAQ-g" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_mBxAYHCgEe2809onhOAQ-g" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_mB144HCgEe2809onhOAQ-g" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_mB6KUHCgEe2809onhOAQ-g" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_RqKnYHV9Ee2i5cZwcJxGJw" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_I1YYoJJ0Ee2Ld52kG-Ir1w" name="testingOption" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_lsrhMHCgEe2809onhOAQ-g" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_lstWYHCgEe2809onhOAQ-g" processName="testers.TestOrderProcess"/>
+  </sca:component>
+  <sca:component xmi:id="_1MMpMJKMEe2lyLd445Duwg" name="ComponentJMSTest" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_1MMpMZKMEe2lyLd445Duwg" processName="testers.NewOrderRESTClient"/>
+  </sca:component>
+</sca:composite>

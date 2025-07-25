@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_hRFt4MJrEeaHO8M2peCJKQ" targetNamespace="http://tns.tibco.com/bw/composite/JMSSend" name="JMSSend" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_hRFt4cJrEeaHO8M2peCJKQ" name="Deployment" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt4sJrEeaHO8M2peCJKQ" name="DirLedger" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt48JrEeaHO8M2peCJKQ" name="DirTrace" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt5MJrEeaHO8M2peCJKQ" name="Domain" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt5cJrEeaHO8M2peCJKQ" name="HawkEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt5sJrEeaHO8M2peCJKQ" name="JmsProviderUrl" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt58JrEeaHO8M2peCJKQ" name="JmsSslProviderUrl" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt6MJrEeaHO8M2peCJKQ" name="RemoteRvDaemon" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt6cJrEeaHO8M2peCJKQ" name="RvDaemon" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt6sJrEeaHO8M2peCJKQ" name="RvNetwork" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt68JrEeaHO8M2peCJKQ" name="RvService" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt7MJrEeaHO8M2peCJKQ" name="RvaHost" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt7cJrEeaHO8M2peCJKQ" name="RvaPort" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt7sJrEeaHO8M2peCJKQ" name="TIBHawkDaemon" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt78JrEeaHO8M2peCJKQ" name="TIBHawkNetwork" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt8MJrEeaHO8M2peCJKQ" name="TIBHawkService" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt8cJrEeaHO8M2peCJKQ" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt8sJrEeaHO8M2peCJKQ" name="BW.APPNODE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt88JrEeaHO8M2peCJKQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt9MJrEeaHO8M2peCJKQ" name="BW.HOST.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt9cJrEeaHO8M2peCJKQ" name="BW.DOMAIN.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt9sJrEeaHO8M2peCJKQ" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt98JrEeaHO8M2peCJKQ" name="BW.APPSPACE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt-MJrEeaHO8M2peCJKQ" name="BW.MODULE.VERSION" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hRFt-cJrEeaHO8M2peCJKQ" name="BW.MODULE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hYc6IMJrEeaHO8M2peCJKQ" name="ResourcesJMSConnection7222" type="jms:JMSConnectionFactory" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_vAk1UMJuEeajX4G9mald_w" name="ComponentTriggerSendJMS" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_vAk1UcJuEeajX4G9mald_w" processName="jmssend.TriggerSendJMS"/>
+  </sca:component>
+</sca:composite>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://www.tibco.com/bwp/schemas/acmeshipping" xmlns:tns="http://www.tibco.com/bwp/services/shippingabstrct" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/bwp/services/shippingabstrct">
+    <import location="../Schemas/ACMEShippingSchema.xsd" namespace="http://www.tibco.com/bwp/schemas/acmeshipping"/>
+    <message name="ShippingRequest">
+        <part element="ns:ShippingRequest" name="parameters"/>
+    </message>
+    <message name="ShippingResult">
+        <part element="ns:ShippingResult" name="parameters"/>
+    </message>
+    <portType name="portType">
+        <operation name="DoShippingOp">
+            <input message="tns:ShippingRequest"/>
+            <output message="tns:ShippingResult"/>
+        </operation>
+    </portType>
+</definitions>

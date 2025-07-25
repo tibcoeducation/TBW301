@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/tibedu/ACMEOrders" xmlns:tns0="http://www.tibco.com/schemas/testschemas/Schema.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="orderStatusPort" targetNamespace="http://www.tibco.com/tibedu/ACMEOrders">
+  <wsdl:types>
+    <xsd:schema xmlns:tns="http://www.tibco.com/schemas/testschemas/Schema.xsd" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/testschemas/Schema.xsd">
+      <xsd:element name="NewOrderInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:CustomerID"/>
+            <xsd:element ref="tns:Priority"/>
+            <xsd:element ref="tns:OrderDate"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:LineItems"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OrderID" type="xsd:string"/>
+      <xsd:element name="CustomerID" type="xsd:string"/>
+      <xsd:element name="OrderAmount" type="xsd:double"/>
+      <xsd:element name="OrderStatusInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:OrderID"/>
+            <xsd:element ref="tns:CustomerID"/>
+            <xsd:element ref="tns:Status"/>
+            <xsd:element ref="tns:OrderAmount"/>
+            <xsd:element ref="tns:HandlingAmount"/>
+            <xsd:element ref="tns:TotalAmount"/>
+            <xsd:element ref="tns:DateChanged"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DateChanged" type="xsd:dateTime"/>
+      <xsd:element name="ItemSKU" type="xsd:string"/>
+      <xsd:element name="LineItemDetail">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:ItemSKU"/>
+            <xsd:element ref="tns:ItemDesc"/>
+            <xsd:element ref="tns:Status"/>
+            <xsd:element ref="tns:Quantity"/>
+            <xsd:element ref="tns:Price"/>
+            <xsd:element ref="tns:DateChanged"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Quantity" type="xsd:int"/>
+      <xsd:element name="Price" type="xsd:double"/>
+      <xsd:element name="OrderDate" type="xsd:dateTime"/>
+      <xsd:element name="ItemDesc" type="xsd:string"/>
+      <xsd:element name="LineItems">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:ItemSKU"/>
+            <xsd:element ref="tns:Quantity"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="HandlingAmount" type="xsd:double"/>
+      <xsd:element name="TotalAmount" type="xsd:double"/>
+      <xsd:element name="Status" type="xsd:string"/>
+      <xsd:element name="OrderDetailInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:OrderStatusInfo"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:LineItemDetail"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Priority" type="xsd:string"/>
+      <xsd:element name="LineItemsList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="tns:LineItemDetail"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="OrderStatusInfoArray">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:OrderStatusInfo"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="OrderStatusInfoArray" type="tns:OrderStatusInfoArray"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="orderStatusRequest">
+    <wsdl:part element="tns0:OrderID" name="input"/>
+  </wsdl:message>
+  <wsdl:message name="orderStatusReply">
+    <wsdl:part element="tns0:OrderStatusInfo" name="output"/>
+  </wsdl:message>
+  <wsdl:portType name="orderStatusPort">
+    <wsdl:operation name="getOrderStatusOp">
+      <wsdl:input message="tns:orderStatusRequest"/>
+      <wsdl:output message="tns:orderStatusReply"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:orderStatusPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getOrderStatusOp">
+      <soap:operation soapAction="getOrderStatusOp" style="document"/>
+      <wsdl:input>
+        <soap:body parts="input" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="output" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="orderStatusPort">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="orderStatusPortSOAP">
+      <soap:address location="http://localhost:9797/SOAPServiceBinding/orderStatusPort/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

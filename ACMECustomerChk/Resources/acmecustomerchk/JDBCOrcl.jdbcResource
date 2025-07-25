@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_aG8R4MGbEeaRet1oV4IS6A" name="acmecustomerchk.JDBCOrcl" type="jdbc:JdbcDataSource">
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_aG-HEMGbEeaRet1oV4IS6A">
+    <substitutionBindings xmi:id="_aJPX8MGbEeaRet1oV4IS6A" template="username" propName="ACMEDB/UserName"/>
+    <substitutionBindings xmi:id="_aJWssMGbEeaRet1oV4IS6A" template="password" propName="ACMEDB/Password"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_aG-HEcGbEeaRet1oV4IS6A" jdbcDriver="oracle.jdbc.OracleDriver" loginTimeout="0">
+      <substitutionBindings xmi:id="_aJB8kMGbEeaRet1oV4IS6A" template="dbURL" propName="ACMEDB/ConnectString"/>
+    </connectionConfig>
+  </jndi:configuration>
+</jndi:namedResource>

@@ -1,0 +1,7 @@
+{
+    "records": [],
+    "resources": [{
+        "location": "Service Descriptors/Services.Ordering-ItemOrder.json",
+        "type": "generated"
+    }]
+}

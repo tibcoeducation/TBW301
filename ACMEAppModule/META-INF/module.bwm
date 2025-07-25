@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ACMEOrders="http://www.tibco.com/tibedu/ACMEOrders" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:CheckCustCredit="http://www.tibco.com/CheckCustCredit/" xmlns:CheckCustCredit.xsd="/Processes/CheckCustCredit.xsd" xmlns:Schema.xsd="http://www.tibco.com/schemas/testschemas/Schema.xsd" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:acmeshipping="http://www.tibco.com/bwp/schemas/acmeshipping" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:shippingabstrct="http://www.tibco.com/bwp/services/shippingabstrct" xmi:id="_PfrUkHJCEe26f7KPcitUjA" targetNamespace="http://tns.tibco.com/bw/composite/ACMEAppModule" name="ACMEAppModule" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_OD_I8HJeEe26f7KPcitUjA" name="itemorder" promote="ComponentOrdering/itemorder">
+    <sca:interface.wsdl xmi:id="_OEFPkHJeEe26f7KPcitUjA" interface="http://xmlns.example.com/20221202074758PLT#wsdl.interface(itemorder)" scaext:wsdlLocation="../Processes/Services/Ordering.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_OEPAkHJeEe26f7KPcitUjA" name="RestService" path="/itemorder" docBasePath="http://localhost:7777/ACMEAppModule" docResourcePath="ItemOrder" basePath="/" connector="acmeshared.HTTPLookup" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Services.Ordering-ItemOrder.json">
+      <operation xmi:id="_OEVuQHJeEe26f7KPcitUjA" operationName="get" nickname="get-itemorder" httpMethod="GET" notes="getItemOrder" responseStyle="json_root" requestStyle="element" outputPartName="item">
+        <parameters xmi:id="_V84kIHVZEe2i5cZwcJxGJw">
+          <parameterMapping xmi:id="_V84kIXVZEe2i5cZwcJxGJw" parameterName="OrderID" parameterType="Query" dataType="string" required="true"/>
+        </parameters>
+        <clientFormat>json</clientFormat>
+        <clientFormat>xml</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_f5WsYHTtEe2qLJIO8M4lMQ" operationName="post" nickname="post-itemorder" httpMethod="POST" notes="postItemOrder" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientFormat>xml</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+        <clientRequestFormat>xml</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_OEopMHJeEe26f7KPcitUjA"/>
+      <advancedConfig xmi:id="_OESD4HJeEe26f7KPcitUjA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_OEVuQXJeEe26f7KPcitUjA" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_InjloJGQEe2m1fyQapsRNQ" name="orderStatusPort" promote="ComponentOrderLookup/orderStatusPort">
+    <sca:interface.wsdl xmi:id="_InsvkJGQEe2m1fyQapsRNQ" interface="http://www.tibco.com/tibedu/ACMEOrders#wsdl.interface(orderStatusPort)" scaext:wsdlLocation="../../ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_pnJMIJGQEe2m1fyQapsRNQ" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/8f792272c0104e9285405c487b09df95/SOAPServiceBinding" portTypeQName="ACMEOrders:orderStatusPort" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl">
+      <bindingType xmi:id="_pnVZYJGQEe2m1fyQapsRNQ"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_wkJagJGQEe2m1fyQapsRNQ" endpointURI="/SOAPServiceBinding/orderStatusPort/" httpConnector="acmeshared.HTTPLookup"/>
+      <operationConfiguration xmi:id="_pnYcsJGQEe2m1fyQapsRNQ" operationName="getOrderStatusOp" action="getOrderStatusOp" actionNeeded="true">
+        <bindingType xmi:id="_pnYcsZGQEe2m1fyQapsRNQ"/>
+        <messageConfiguration xmi:id="_pnYcspGQEe2m1fyQapsRNQ" messageQName="ACMEOrders:orderStatusRequest" wsdlLocation="platform:/resource/ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_pnYcs5GQEe2m1fyQapsRNQ" partName="input" partElementName="Schema.xsd:OrderID"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_pnYctJGQEe2m1fyQapsRNQ" messageQName="ACMEOrders:orderStatusReply" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_pnYctZGQEe2m1fyQapsRNQ" partName="output" partElementName="Schema.xsd:OrderStatusInfo"/>
+        </messageConfiguration>
+        <context xmi:id="_pnZq0JGQEe2m1fyQapsRNQ">
+          <inputMapping xmi:id="_pnaR4JGQEe2m1fyQapsRNQ"/>
+          <outputMapping xmi:id="_pnaR4ZGQEe2m1fyQapsRNQ" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_pna48JGQEe2m1fyQapsRNQ" bindingName="SOAPServiceBinding"/>
+  </sca:service>
+  <sca:service xmi:id="_yfwvkJJ1Ee2Ld52kG-Ir1w" name="newOrderPort" promote="ComponentNewOrderProcess/newOrderPort">
+    <sca:interface.wsdl xmi:id="_yf4EUJJ1Ee2Ld52kG-Ir1w" interface="http://www.tibco.com/tibedu/ACMEOrders#wsdl.interface(newOrderPort)" scaext:wsdlLocation="../../ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_MllB4JJ2Ee2Ld52kG-Ir1w" name="SOAPServiceBinding1" targetNamespace="http://www.tibco.com/bb98258a52d54b109acf319430c32d29/SOAPServiceBinding1" portTypeQName="ACMEOrders:newOrderPort" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl">
+      <bindingType xmi:id="_Mls9sJJ2Ee2Ld52kG-Ir1w"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_PfZusJJ2Ee2Ld52kG-Ir1w" endpointURI="/SOAPServiceBinding1/newOrderPort/" httpConnector="acmeshared.HTTPLookup"/>
+      <operationConfiguration xmi:id="_MltkwJJ2Ee2Ld52kG-Ir1w" operationName="placeOrderOp" action="placeOrderOp" actionNeeded="true">
+        <bindingType xmi:id="_MltkwZJ2Ee2Ld52kG-Ir1w"/>
+        <messageConfiguration xmi:id="_MltkwpJ2Ee2Ld52kG-Ir1w" messageQName="ACMEOrders:newOrderRequest" wsdlLocation="platform:/resource/ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_Mltkw5J2Ee2Ld52kG-Ir1w" partName="input" partElementName="Schema.xsd:NewOrderInfo"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_MltkxJJ2Ee2Ld52kG-Ir1w" messageQName="ACMEOrders:orderStatusReply" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_MltkxZJ2Ee2Ld52kG-Ir1w" partName="output" partElementName="Schema.xsd:OrderStatusInfo"/>
+        </messageConfiguration>
+        <context xmi:id="_MltkxpJ2Ee2Ld52kG-Ir1w">
+          <inputMapping xmi:id="_MluL0JJ2Ee2Ld52kG-Ir1w"/>
+          <outputMapping xmi:id="_MluL0ZJ2Ee2Ld52kG-Ir1w" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_MluL0pJ2Ee2Ld52kG-Ir1w" bindingName="SOAPServiceBinding1"/>
+  </sca:service>
+  <sca:property xmi:id="_PjnZYHJCEe26f7KPcitUjA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Pjy_kHJCEe26f7KPcitUjA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Pj1b0HJCEe26f7KPcitUjA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Pj3RAHJCEe26f7KPcitUjA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Pj5tQHJCEe26f7KPcitUjA" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Pj7icHJCEe26f7KPcitUjA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Pj9XoHJCEe26f7KPcitUjA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Pj_z4HJCEe26f7KPcitUjA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_PkCQIHJCEe26f7KPcitUjA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_gHUeMHVhEe2i5cZwcJxGJw" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:component xmi:id="_sc7sEHJYEe26f7KPcitUjA" name="ComponentOrdering" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_sc7sEXJYEe26f7KPcitUjA" processName="Services.Ordering"/>
+    <sca:service xmi:id="_OD8FoHJeEe26f7KPcitUjA" name="itemorder">
+      <sca:interface.wsdl xmi:id="_OD8ssHJeEe26f7KPcitUjA" interface="http://xmlns.example.com/20221202074758PLT#wsdl.interface(itemorder)" scaext:wsdlLocation="../Processes/Services/Ordering.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_955JEJGPEe2m1fyQapsRNQ" name="ComponentOrderLookup" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_955JEZGPEe2m1fyQapsRNQ" processName="acmeappmodule.OrderLookup"/>
+    <sca:service xmi:id="_InX_cJGQEe2m1fyQapsRNQ" name="orderStatusPort">
+      <sca:interface.wsdl xmi:id="_InZNkJGQEe2m1fyQapsRNQ" interface="http://www.tibco.com/tibedu/ACMEOrders#wsdl.interface(orderStatusPort)" scaext:wsdlLocation="../../ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_rJOm4JJ1Ee2Ld52kG-Ir1w" name="ComponentNewOrderProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_rJOm4ZJ1Ee2Ld52kG-Ir1w" processName="acmeappmodule.NewOrderProcess"/>
+    <sca:service xmi:id="_yfrQAJJ1Ee2Ld52kG-Ir1w" name="newOrderPort">
+      <sca:interface.wsdl xmi:id="_yftFMJJ1Ee2Ld52kG-Ir1w" interface="http://www.tibco.com/tibedu/ACMEOrders#wsdl.interface(newOrderPort)" scaext:wsdlLocation="../../ACMEShared/Service%20Descriptors/ACMEOrderWSDL.wsdl"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

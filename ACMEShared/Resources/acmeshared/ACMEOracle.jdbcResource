@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_OfIDoJJZEe2h8vv8OMJDVA" name="acmeshared.ACMEOracle" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_OffQAJJZEe2h8vv8OMJDVA" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_OffQAZJZEe2h8vv8OMJDVA">
+    <substitutionBindings xmi:id="_tiMUQJJzEe2Ld52kG-Ir1w" template="username" propName="dbuser"/>
+    <substitutionBindings xmi:id="_4zwvIJJzEe2Ld52kG-Ir1w" template="password" propName="dbpassword"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_OfgeIJJZEe2h8vv8OMJDVA" jdbcDriver="oracle.jdbc.OracleDriver" dbURL="jdbc:oracle:thin:@edusvr:1521:edusvr"/>
+    <connectionProperties xmi:id="_lKuTAJJzEe2Ld52kG-Ir1w" key="jarFile" value="ojdbc"/>
+  </jndi:configuration>
+</jndi:namedResource>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://www.tibco.com/bwp/services/shippingabstrct" xmlns:tns0="http://www.tibco.com/bwp/schemas/acmeshipping" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ShippingInput" targetNamespace="http://www.tibco.com/bwp/services/shippingabstrct" tibex:src="file:/home/tibco/bw6edu/dev/resources/ACMEShippingCONC.wsdl">
+  <wsdl:types>
+    <xsd:schema xmlns:AC="http://www.tibco.com/bwp/schemas/acmeshipping" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/bwp/schemas/acmeshipping">
+      <xsd:element name="ShippingRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="AC:CustID"/>
+            <xsd:element ref="AC:OrderAmount"/>
+            <xsd:element ref="AC:Priority"/>
+            <xsd:element ref="AC:OrderDate"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ShippingResult">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="AC:CustID"/>
+            <xsd:element ref="AC:TotalCharges"/>
+            <xsd:element ref="AC:DeliveryDate"/>
+            <xsd:element ref="AC:Status"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Status" type="xsd:string"/>
+      <xsd:element name="CustID" type="xsd:string"/>
+      <xsd:element name="DeliveryDate" type="xsd:date"/>
+      <xsd:element name="OrderAmount" type="xsd:double"/>
+      <xsd:element name="Priority" type="xsd:string"/>
+      <xsd:element name="OrderDate" type="xsd:date"/>
+      <xsd:element name="TotalCharges" type="xsd:decimal"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ShippingRequest">
+    <wsdl:part element="tns0:ShippingRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ShippingResult">
+    <wsdl:part element="tns0:ShippingResult" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="portType">
+    <wsdl:operation name="DoShippingOp">
+      <wsdl:input message="tns:ShippingRequest"/>
+      <wsdl:output message="tns:ShippingResult"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:portType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DoShippingOp">
+      <soap:operation soapAction="DoShippingOp" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ShippingInput">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="ShippingInputSOAP">
+      <soap:address location="http://localhost:7979/SOAPServiceBinding/shippingInput/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

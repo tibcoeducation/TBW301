@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns="http://www.tibco.com/tibedu/ACMEItems" xmlns:ns2="http://www.tibco.com/ns/no_namespace_schema_location/ACMEItemWSDL.wsdl" xmlns:ns="http://www.tibco.com/schemas/testschemas/Schema.xsd" xmlns:tns="http://xmlns.example.com/tibedu/ACMEOrderStatus" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" name="ACMEItems" targetNamespace="http://www.tibco.com/tibedu/ACMEItems">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.tibco.com/schemas/testschemas/Schema.xsd" schemaLocation="../Schemas/ACMEOrderItemSchema.xsd">   		  
+			</xsd:import>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="updateItemRequest">
+        <wsdl:part name="input" element="ns:NewOrderInfo"/>
+    </wsdl:message>
+    <wsdl:message name="ItemStatusReply">
+        <wsdl:part name="input" element="ns:LineItemsList"/>
+    </wsdl:message>
+    <wsdl:portType name="itemPort">
+        <wsdl:operation name="updateItemOp">
+            <wsdl:input message="updateItemRequest"/>
+            <wsdl:output message="ItemStatusReply"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

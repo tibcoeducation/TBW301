@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/schemas/testschemas/Schema.xsd" xmlns:tns="http://www.tibco.com/tibedu/ACMEOrders" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" name="ACMEOrders" targetNamespace="http://www.tibco.com/tibedu/ACMEOrders">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.tibco.com/schemas/testschemas/Schema.xsd" schemaLocation="../Schemas/ACMEOrderItemSchema.xsd">   		  
+			</xsd:import>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="orderStatusRequest">
+        <wsdl:part element="ns:OrderID" name="input"/>
+    </wsdl:message>
+    <wsdl:portType name="newOrderPort">
+        <wsdl:operation name="placeOrderOp">
+            <wsdl:input message="tns:newOrderRequest"/>
+            <wsdl:output message="tns:orderStatusReply"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="newOrderRequest">
+        <wsdl:part element="ns:NewOrderInfo" name="input"/>
+    </wsdl:message>
+    <wsdl:message name="orderStatusReply">
+        <wsdl:part element="ns:OrderStatusInfo" name="output"/>
+    </wsdl:message>
+    <wsdl:portType name="orderStatusPort">
+        <wsdl:operation name="getOrderStatusOp">
+            <wsdl:input message="tns:orderStatusRequest"/>
+            <wsdl:output message="tns:orderStatusReply"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

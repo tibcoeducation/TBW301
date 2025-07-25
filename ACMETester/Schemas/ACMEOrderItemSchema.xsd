@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://www.tibco.com/schemas/testschemas/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/testschemas/Schema.xsd">
+	<xs:element name="NewOrderInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustomerID"/>
+				<xs:element ref="Priority"/>
+				<xs:element ref="OrderDate"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="LineItems"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OrderID" type="xs:string"/>
+	<xs:element name="CustomerID" type="xs:string"/>
+	<xs:element name="OrderAmount" type="xs:double"/>
+	<xs:element name="OrderStatusInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OrderID"/>
+				<xs:element ref="CustomerID"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="OrderAmount"/>
+				<xs:element ref="HandlingAmount"/>
+				<xs:element ref="TotalAmount"/>
+				<xs:element ref="DateChanged"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DateChanged" type="xs:dateTime"/>
+	<xs:element name="ItemSKU" type="xs:string"/>
+	<xs:element name="LineItemDetail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ItemSKU"/>
+				<xs:element ref="ItemDesc"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Quantity"/>
+				<xs:element ref="Price"/>
+				<xs:element ref="DateChanged"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Quantity" type="xs:int"/>
+	<xs:element name="Price" type="xs:double"/>
+	<xs:element name="OrderDate" type="xs:dateTime"/>
+	<xs:element name="ItemDesc" type="xs:string"/>
+	<xs:element name="LineItems">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ItemSKU"/>
+				<xs:element ref="Quantity"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HandlingAmount" type="xs:double"/>
+	<xs:element name="TotalAmount" type="xs:double"/>
+	<xs:element name="Status" type="xs:string"/>
+	<xs:element name="OrderDetailInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OrderStatusInfo"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="LineItemDetail"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Priority" type="xs:string"/>
+	<xs:element name="LineItemsList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="LineItemDetail"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <xs:complexType name="OrderStatusInfoArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="OrderStatusInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:element name="OrderStatusInfoArray" type="OrderStatusInfoArray"/>
+</xs:schema>

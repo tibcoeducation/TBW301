@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_bXF5YHJAEe26f7KPcitUjA" targetNamespace="http://tns.tibco.com/bw/composite/ACMEShared" name="ACMEShared" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_bguWgHJAEe26f7KPcitUjA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bhCfkHJAEe26f7KPcitUjA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bhGxAHJAEe26f7KPcitUjA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bhImMHJAEe26f7KPcitUjA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bhKbYHJAEe26f7KPcitUjA" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bhMQkHJAEe26f7KPcitUjA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bhOs0HJAEe26f7KPcitUjA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bhRJEHJAEe26f7KPcitUjA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_bhS-QHJAEe26f7KPcitUjA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_gIHIYHVhEe2i5cZwcJxGJw" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_wKLqMJJzEe2Ld52kG-Ir1w" name="dbuser" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_z6U7AJJzEe2Ld52kG-Ir1w" name="dbpassword" type="property:password" scaext:simpleValue="#!bEtmCpzR0lEygydeK6HRUA==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_-tBBgJJzEe2Ld52kG-Ir1w" name="httpOrdering" type="XMLSchema:int" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+</sca:composite>

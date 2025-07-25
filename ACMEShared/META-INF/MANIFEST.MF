@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACMEShared Module
+Bundle-SymbolicName: ACMEShared
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: TIBCO Software Inc.
+TIBCO-BW-ConfigProfile: META-INF/default.substvar
+TIBCO-BW-SharedModule: META-INF/module.bwm
+TIBCO-BW-Edition: bwe
+TIBCO-BW-JobSharedVariables: META-INF/module.jsv
+Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
+ com.tibco.bw.sharedresource.model; filter:="(name=bw.httpclient)",
+ com.tibco.bw.sharedresource.model; filter:="(name=bw.httpconnector)",
+ com.tibco.bw.sharedresource.model; filter:="(name=bw.jdbc)"
+TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
+Provide-Capability: com.tibco.bw.module; name="ACMEShared"; version:Version="1.0.0",
+ com.tibco.bw.wsdls; ns="http://www.tibco.com/tibedu/ACMEItems",
+ com.tibco.bw.wsdls; ns="http://www.tibco.com/tibedu/ACMEOrders",
+ com.tibco.bw.wsdls; ns="http://www.tibco.com/CheckCustCredit/",
+ com.tibco.bw.wsdls; ns="http://www.tibco.com/bwp/services/shippingabstrct",
+ com.tibco.bw.schemas; ns="http://www.tibco.com/schemas/testschemas/Schema.xsd",
+ com.tibco.bw.schemas; ns="http://www.tibco.com/tibedu/testschema/CustSchema.xsd",
+ com.tibco.bw.resources; name="acmeshared"
+TIBCO-BW-Version: 6.7.0 V34 2020-11-06

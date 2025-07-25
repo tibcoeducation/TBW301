@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:AC="http://www.tibco.com/bwp/schemas/acmeshipping"
+	 targetNamespace="http://www.tibco.com/bwp/schemas/acmeshipping"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<element name="ShippingRequest">
+		<complexType>
+			<sequence>
+				<element ref="AC:CustID"/>
+				<element ref="AC:OrderAmount"/>
+				<element ref="AC:Priority"/>
+				<element ref="AC:OrderDate"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="ShippingResult">
+		<complexType>
+			<sequence>
+				<element ref="AC:CustID"/>
+				<element ref="AC:TotalCharges"/>
+				<element ref="AC:DeliveryDate"/>
+				<element ref="AC:Status"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="Status" type="xsd:string"/>
+	<element name="CustID" type="xsd:string"/>
+	<element name="DeliveryDate" type="xsd:date"/>
+	<element name="OrderAmount" type="xsd:double"/>
+	<element name="Priority" type="xsd:string"/>
+	<element name="OrderDate" type="xsd:date"/>
+	<element name="TotalCharges" type="xsd:decimal"/>
+</schema>

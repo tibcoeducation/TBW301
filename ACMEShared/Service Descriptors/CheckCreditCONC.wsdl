@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://www.tibco.com/CheckCustCredit/" xmlns:tns0="/Processes/CheckCustCredit.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CheckCustCredit" targetNamespace="http://www.tibco.com/CheckCustCredit/" tibex:src="file:/home/tibco/bw6edu/dev/resources/CheckCreditCONC.wsdl">
+  <wsdl:types>
+    <xsd:schema xmlns="/Processes/CheckCustCredit.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="/Processes/CheckCustCredit.xsd">
+      <xsd:element name="InSchema">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CustID" type="xsd:string"/>
+            <xsd:element name="CreditAmt" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OutSchema">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="comments" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckOpRequest">
+    <wsdl:part element="tns0:InSchema" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckOpResponse">
+    <wsdl:part element="tns0:OutSchema" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="CheckCustCredit">
+    <wsdl:operation name="CheckOp">
+      <wsdl:input message="tns:CheckOpRequest"/>
+      <wsdl:output message="tns:CheckOpResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:CheckCustCredit">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CheckOp">
+      <soap:operation soapAction="CheckOp" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CheckCustCredit">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="CheckCustCreditSOAP">
+      <soap:address location="http://localhost:6868/SOAPServiceBinding/checkCustCredit/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

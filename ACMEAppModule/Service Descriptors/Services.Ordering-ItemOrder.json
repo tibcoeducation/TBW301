@@ -1,0 +1,124 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "ItemOrder",
+    "description" : "Get Order Status"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/itemorder" : {
+      "post" : {
+        "summary" : "postItemOrder",
+        "description" : "postItemOrder",
+        "operationId" : "post-itemorder",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/NewOrderInfo"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a OrderStatusInfo to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/OrderStatusInfo"
+            }
+          }
+        }
+      },
+      "get" : {
+        "summary" : "getItemOrder",
+        "description" : "getItemOrder",
+        "operationId" : "get-itemorder",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "OrderID",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a OrderStatusInfo to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/OrderStatusInfo"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "LineItems" : {
+      "type" : "object",
+      "required" : [ "ItemSKU", "Quantity" ],
+      "properties" : {
+        "ItemSKU" : {
+          "type" : "string"
+        },
+        "Quantity" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "OrderStatusInfo" : {
+      "type" : "object",
+      "required" : [ "Status", "DateChanged", "OrderAmount", "CustomerID", "TotalAmount", "OrderID", "HandlingAmount" ],
+      "properties" : {
+        "OrderID" : {
+          "type" : "string"
+        },
+        "CustomerID" : {
+          "type" : "string"
+        },
+        "Status" : {
+          "type" : "string"
+        },
+        "OrderAmount" : {
+          "type" : "number"
+        },
+        "HandlingAmount" : {
+          "type" : "number"
+        },
+        "TotalAmount" : {
+          "type" : "number"
+        },
+        "DateChanged" : {
+          "type" : "string"
+        }
+      }
+    },
+    "NewOrderInfo" : {
+      "type" : "object",
+      "required" : [ "Priority", "CustomerID", "OrderDate" ],
+      "properties" : {
+        "CustomerID" : {
+          "type" : "string"
+        },
+        "Priority" : {
+          "type" : "string"
+        },
+        "OrderDate" : {
+          "type" : "string"
+        },
+        "LineItems" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LineItems",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}
