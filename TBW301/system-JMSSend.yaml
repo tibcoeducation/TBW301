@@ -1,0 +1,44 @@
+# Debug inputs
+#       application_folder: "TBW301"
+#              application: "JMSSend"
+#               bw6_system: "TBW301"
+#         bw6_project_name: "JMSSend"
+#  bw6_project_description: ""
+#     bw6_project_manifest: ["Manifest-Version: 1.0","Manifest-Version: 1.0",""]
+# bw6_project_dependencies: ["name=bwext","name=bw.generalactivities","name=bw.jms","name=bw.jmsconnection","name=bw.jndiconfiguration"]
+#                  repoUrl: "github.com?owner=tibcoeducation&repo=TBW301"
+#                    owner: "group:default/tibco-imported"
+
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: BW6-Projects
+  description: A group for all BW6 Projects
+spec:
+  type: organization
+  profile:
+    displayName: BW6 Projects
+    email: info@acme.com
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: bw6
+  description: BW6 Domain
+spec:
+  owner: group:BW6-Projects
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: TBW301
+  description: TBW301
+  annotations:
+     github.com/project-slug: https://github.com/tibcoeducation/TBW301
+  tags:
+    - tibco-bw6
+    - imported 
+spec:
+  owner: group:BW6-Projects
+  domain: bw6
