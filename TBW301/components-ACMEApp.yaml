@@ -1,0 +1,27 @@
+# Debug inputs
+#       application_folder: "TBW301"
+#              application: "ACMEApp"
+#               bw6_system: "TBW301"
+#         bw6_project_name: "ACMEApp"
+#  bw6_project_description: ""
+#     bw6_project_manifest: ["Manifest-Version: 1.0","Manifest-Version: 1.0",""]
+# bw6_project_dependencies: []
+#                  repoUrl: "github.com?owner=tibcoeducation&repo=TBW301"
+#                    owner: "group:default/tibco-imported"
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+    name: ACMEApp
+    tags:
+      - bw6-project
+    links:
+      - title: Business Works 6
+        url: https://docs.tibco.com/products/tibco-activematrix-businessworks-6-10-0
+    annotations:
+      github.com/project-slug: https://github.com/tibcoeducation/TBW301
+spec:
+    type: bw-6-project
+    lifecycle: production
+    owner: group:default/tibco-imported
+    system: TBW301
